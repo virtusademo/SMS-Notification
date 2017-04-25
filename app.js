@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 
-var cfenv = require('cfenv');
+//var cfenv = require('cfenv');
 
 // create a new express server
 var app = express();
@@ -10,7 +10,7 @@ var app = express();
 app.use(express.static(__dirname + '/public'));
 
 // get the app environment from Cloud Foundry
-var appEnv = cfenv.getAppEnv();
+//var appEnv = cfenv.getAppEnv();
 
 // Create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
@@ -50,7 +50,7 @@ app.post('/myaction',urlencodedParser, function(req, res) {
     });
 });
 
-app.listen(appEnv.port, '0.0.0.0', function() {
+app.listen(8080, '0.0.0.0', function() {
   // print a message when the server starts listening
-  console.log("server starting on " + appEnv.url);
+  console.log("server starting on " + "https://localhost:8080");
 });
